@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    th,td{
+      padding: 0.5rem;
+      border:1px solid blue;
+      text-align: left;
+    }
+    
+  </style>
+  
+</head>
+<body>
+</div>
+  
+<h1>Stock Data</h1><br>
+<table>
+  <thead>
+    <tr>
+      <th>Stock Symbol</th>
+      <th>Price</th>
+      <th>Update Time</th>
+      <th>Chart</th>
+    </tr>
+    
+  </thead>
+  <tbody>
+    <tr th:each="StockHomePageDto:${stockHomePageDtos}" >
+      <td th:text="${StockHomePageDto.symbol}"></td>
+      <td th:text="${StockHomePageDto.price}"></td>
+      <td th:text="${StockHomePageDto.updatetime}"></td>
+      <td>
+        <a th:if="${StockHomePageDto.symbol == '0388.HK'}" th:href="@{'/388/5min'}">點擊查看圖表</a>
+        <a th:if="${StockHomePageDto.symbol == '0700.HK'}" th:href="@{'/700/5min'}">點擊查看圖表</a>
+        <a th:if="${StockHomePageDto.symbol == '0005.HK'}" th:href="@{'/005/5min'}">點擊查看圖表</a>
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+
+</table>
+
+<div class="refresh-button">
+  <button id="refreshButton">Refresh</button>
+</div>
+<script>
+  refreshButton.addEventListener('click', function() {
+        window.location.reload();
+      });
+
+      setInterval(function() {
+        window.location.reload();
+      }, 50000);
+</script>
+  
+</body>
+</html>

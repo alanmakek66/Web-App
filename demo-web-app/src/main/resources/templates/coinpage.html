@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Data</title>
+  <style>
+    .form-control{
+      border-radius: 0.5rem;
+      border:1px solid;
+
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th,td{
+      padding: 0.5rem;
+      border:1px solid brown;
+      text-align: left;
+    }
+    .bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+  </style>
+ 
+</head>
+<body>
+  <div class="form-group">
+    <label for="coinFilter">Filter By ID:</label>
+    <input type="text" class="form-control" id="coinFilter" placeholder="Enter Coin ID">
+
+  </div>
+  
+  <h1 class="bungee-inline-regular">Coin Data</h1><br>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>image</th>
+        <th>Current Price(USD)</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      <tr th:each="CoinDate:${coinDataList}" class="coinRow">
+        <td th:text="${CoinDate.id}"></td>
+        <td><img th:src="${CoinDate.image}" alt="Coin Image" height="90"></td>
+        <td th:text="${CoinDate.current_price}"></td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="refresh-button">
+    <button id="refreshButton">Refresh</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var coinFilter =document.getElementById('coinFilter');
+      var coinRows =document.querySelectorAll('.coinRow');
+
+      
+
+      
+
+      coinFilter.addEventListener('input',function(){
+        var filter =coinFilter.value.toUpperCase();
+
+        coinRows.forEach(function(row){
+          var coinId=row.querySelector('td:nth-child(1)').textContent.toUpperCase();
+          if(coinId.indexOf(filter)>-1){
+            row.style.display=''; //Show the row
+          }else{
+            row.style.display='none';//Hide the row
+          }
+        });
+      });
+
+      refreshButton.addEventListener('click', function() {
+        window.location.reload();
+      });
+
+      setInterval(function() {
+        window.location.reload();
+      }, 50000);
+    
+    
+    
+    });
+    
+    
+
+  </script>
+
+  
+</body>
+</html>
