@@ -11,9 +11,12 @@ import com.bootcamp.demo_web_app.model.StockPrice;
 
 @Component
 public class StockPriceMapper {
+  
   public StockPrice map(Data1Dto d1){
-    DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-    LocalDateTime ddd=LocalDateTime.parse(d1.getMarkTime(),dateTimeFormatter);
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm[:ss]");
+    LocalDateTime ddd=LocalDateTime.parse(d1.getMarkTime(),formatter);
+    
     int year=ddd.getYear();
     int month=ddd.getMonthValue();
     int day=ddd.getDayOfMonth();

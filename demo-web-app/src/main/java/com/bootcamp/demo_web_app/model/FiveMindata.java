@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.servlet.annotation.ServletSecurity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

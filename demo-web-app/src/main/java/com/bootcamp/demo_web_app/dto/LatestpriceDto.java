@@ -6,16 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Builder
-public class StockHomePageDto {
-  private String symbol;
-  private String price;
-  private String updatetime;
-  private String chart;
-  private String chart2;
+
+public class LatestpriceDto {
+  private double ask;
+  private double bid;
   
 }

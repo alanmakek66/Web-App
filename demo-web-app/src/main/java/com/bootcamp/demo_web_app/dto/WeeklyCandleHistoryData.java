@@ -11,11 +11,17 @@ import lombok.Setter;
 @Setter
 @Getter
 @Builder
-public class StockHomePageDto {
-  private String symbol;
-  private String price;
-  private String updatetime;
-  private String chart;
-  private String chart2;
+public class WeeklyCandleHistoryData {
+  private long wtimestamp;
+    
+    private double wopen;
+   
+    private double whigh;
+   
+    private double wlow;
+    
+    private double wclose;
+    
+    private long wvolume;
   
 }

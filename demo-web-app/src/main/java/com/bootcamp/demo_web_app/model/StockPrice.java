@@ -20,7 +20,7 @@ public class StockPrice {
 
   public StockPrice(int year, int month, int day, int hour, int minute,
       double price) {
-    this.timestamp = LocalDateTime.of(year, month, month, hour, minute, minute) //
+    this.timestamp = LocalDateTime.of(year, month, day, hour, minute, minute) //
         .atZone(ZoneId.of("Asia/Hong_Kong")) //
         .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     System.out.println(timestamp);
