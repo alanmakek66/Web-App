@@ -9,15 +9,34 @@
   <title>Document</title>
   <style>
     th,td{
+      height: 50px;
+  line-height: 50px;
       padding: 0.5rem;
       border:1px solid blue;
+      border-radius: 10px;
       text-align: left;
+      
+  text-align: center;
+  vertical-align: middle;
     }
     .shojumaru-regular {
   font-family: "Shojumaru", system-ui;
   font-weight: 400;
   font-style: normal;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a:active {
+  color: rgb(9, 1, 1);
+}
+a {
+  color: rgb(9, 1, 1);
+  text-decoration: none;
+}
+
 
     
     
@@ -25,16 +44,17 @@
   
 </head>
 <body>
-</div>
+
   
-<h1 class="shojumaru-regular">Stock Data</h1><br>
+<h1 class="shojumaru-regular container ">Stock Data</h1><br>
+<div class="container">
 <table>
   <thead>
     <tr>
       <th>Stock Symbol</th>
       <th>Price</th>
-      <th>Update Time</th>
-      <th>Chart</th>
+      <th >Update Time</th><br>
+      <th >Chart</th>
     </tr>
     
   </thead>
@@ -54,8 +74,9 @@
   </tbody>
 
 </table>
+</div>
 
-<div class="refresh-button">
+<div class="refresh-button container">
   <button id="refreshButton">Refresh</button>
 </div>
 <script>
